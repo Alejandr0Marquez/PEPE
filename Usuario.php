@@ -12,13 +12,13 @@ include ("conexion.php");
             if ($tipoUsuario == "1") {
                 header("Location: ./Productos.php");
             } elseif ($tipoUsuario == "2") {
-                header("Location: ./PEPE/Administrador.php");
+                header("Location: ./Administrador.php");
             } else {
-                header("Location: ./PEPE/Productos.php");
+                header("Location: ./Productos.php");
                 echo "Tipo de usuario desconocido";
             }
         } else {
-            header("Location: ./PEPE/Login.html");
+            header("Location: ./Login.html");
             echo "Inicio incorrecto";
         }
 ?>
