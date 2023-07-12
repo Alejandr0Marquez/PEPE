@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilo.css">
+    <title>Tenki Digital - Registro</title>
+
+</head>
+<body>
+    <header>
+        <div class="Navbar">
+            <ul class="BarraP">
+                <li><a id="Log" href="./Descripcion.html"><img src="./img/Tenki.png" alt="Tenki-Logo"></a></li>
+                <li><a href="./Productos.php">Productos</a></li>
+                <li><a href="./Ubicacion.html">Ubicacion</a></li>
+                <li><a href="./Login.html">Login</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="form" >
+        <form action="Registro.php" method = "POST">
+            <div class="User">
+                <h1 style="color: #cc9d02; margin: 5%;">Registrarse</h1>
+                <div class="in-Registro">
+                    <input class="Reg" type="email" placeholder="Correo electronico" name="correo" id="correo">
+                </div>
+                <div class="in-Registro">
+                    <input class="Reg" placeholder="Nombre(s)" name="nombre" id="nombre">
+                </div>
+                <div class="in-Registro">
+                    <input class="Reg" placeholder="Apellido(s)" name="apellido" id="apellido">
+                </div>
+                <div class="in-Registro">
+                    <input class="Reg" type="date" placeholder="Fecha Nacimiento" name="nacimiento" id="nacimiento">
+                </div>
+                <div class="in-Registro">
+                    <input class="Reg" type="number" placeholder="Numero telefonico" name="telefono" id="telefono">
+                </div>
+                <div class="in-Registro">
+                    <input class="Reg" placeholder="Direccion" name="direccion" id="direccion">
+                </div>
+                <div class="in-Registro">
+                    <input class="Reg" type="password" placeholder="Contraseña" name="contrasena" id="contrasena">
+                </div>
+                <button type="submit"  class="BRegistro" name="registrar" id="registrar">
+                    Registrar
+                </button>
+            </div>
+        </form>
+    </div>
+    <footer class="Pie">
+        <h1 id="Contacto">
+            Contacto
+        </h1>
+        <p id="Datos">
+            México, 44600 Guadalajara, Jal., Santa Teresita, 44600<br>33-14-65-02-09<br>atencionaclientes@tenki.mx<br>
+        </p>
+    </footer>
+</body>
+</html>

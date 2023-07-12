@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilo.css">
+    <title>Tenki Digital - Login</title>
+</head>
+<body>
+    <header>
+        <div class="Navbar">
+            <ul class="BarraP">
+                <li><a id="Log" href="./Descripcion.html"><img src="./img/Tenki.png" alt="Tenki-Logo"></a></li>
+                <li><a href="./Productos.php">Productos</a></li>
+                <li><a href="./Ubicacion.html">Ubicacion</a></li>
+                <li><a href="./Login.html">Login</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="form">
+        <form action="Usuario.php" method = "POST">
+                <div><h1 style="color: #cc9d02;">Inicio de Sesion</h1></div>
+                <div class="log">
+                    <input class="Login" placeholder="Correo electronico" id="correo" name="correo">
+                </div>
+                <div class="log">
+                    <input class="Login" type="password" placeholder="Contraseña" id="contrasena" name="contrasena">
+                </div>
+                    <button class="BLogin" type="submit">
+                        Iniciar Sesion
+                    </button>
+                <div class="Registro">
+                    <span style="color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: medium;">No tienes cuenta?</span>
+                    <a style="color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: medium; text-decoration: underline;" href="./registro.html">Registrarse</a>
+                </div>
+        </form>
+    </div>
+
+    <footer class="Pie">
+        <h1 id="Contacto">
+            Contacto
+        </h1>
+        <p id="Datos">
+            México, 44600 Guadalajara, Jal., Santa Teresita, 44600<br>33-14-65-02-09<br>atencionaclientes@tenki.mx<br>
+        </p>
+    </footer>
+</body>
+</html>
