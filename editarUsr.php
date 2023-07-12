@@ -11,5 +11,5 @@ $direccion = $_POST['direccion'];
 
 $sql = mysqli_query($con, "UPDATE usuarios SET nombre='$nombre', apellido='$apellido', contrasena='$contrasena',
 correo='$correo', telefono='$telefono', direccion='$direccion', WHERE id='$id'");
-header("Location: http://localhost/PEPE/eUsuarios.php");
+header("Location: ./eUsuarios.php");
 ?>

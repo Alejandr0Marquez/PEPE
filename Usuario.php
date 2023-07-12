@@ -10,15 +10,15 @@ include ("conexion.php");
             $tipoUsuario = $usuario['Tipo_usuario'];
         
             if ($tipoUsuario == "1") {
-                header("Location: http://localhost/PEPE/Productos.php");
+                header("Location: ./Productos.php");
             } elseif ($tipoUsuario == "2") {
-                header("Location: http://localhost/PEPE/Administrador.php");
+                header("Location: ./PEPE/Administrador.php");
             } else {
-                header("Location: http://localhost/PEPE/Productos.php");
+                header("Location: ./PEPE/Productos.php");
                 echo "Tipo de usuario desconocido";
             }
         } else {
-            header("Location: http://localhost/PEPE/Login.html");
+            header("Location: ./PEPE/Login.html");
             echo "Inicio incorrecto";
         }
 ?>

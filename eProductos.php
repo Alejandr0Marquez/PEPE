@@ -8,5 +8,5 @@ include ("conexion.php");
         $precio = $_POST['Precio'];
 
         $sql = mysqli_query($con,"UPDATE productos SET Marca='$marca', Modelo='$modelo', Precio='$precio', Descripcion='$descripcion' WHERE id='$id'");
-        header("Location: http://localhost/PEPE/Administrador.php");
+        header("Location: ./Administrador.php");
 ?>

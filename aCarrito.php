@@ -5,6 +5,6 @@ include ("conexion.php");
         $precio = $_POST['Precio'];
 
         $sql = mysqli_query($con,"INSERT INTO carrito(id_C, Marca_C, Modelo_C, Precio_C) VALUES (0, '$marca', '$modelo', '$precio')");
-        header("Location: http://localhost/PEPE/Productos.php");
+        header("Location: ./Productos.php");
 
 ?>
