@@ -1,7 +1,7 @@
 <?php
 $server="127.0.0.1";
-$database="TekiDigital";
-$username="root";
-$password="00Camila";
+$database="tekidigital";
+$username="marquez";
+$password="1234";
 $con = mysqli_connect($server,$username,$password,$database);
 ?>
