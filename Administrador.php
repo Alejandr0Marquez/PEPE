@@ -94,8 +94,8 @@ $sql = mysqli_query($con, "SELECT * FROM productos");
                         <td>
                             <?php echo $row['Descripcion']; ?>
                         </td>
-                        <td><a href="editarAdmin.php?id=<?php echo $row["id"]; ?>"><img title="Editar" src="http://localhost/PEPE/img/edit.png"></a> <a
-                                href="eliminarAdmin.php?id=<?php echo $row["id"]; ?>"><img title="Eliminar" src="http://localhost/PEPE/img/del.png"></a></td>
+                        <td><a href="editarAdmin.php?id=<?php echo $row["id"]; ?>"><img title="Editar" src="./img/edit.png"></a> <a
+                                href="eliminarAdmin.php?id=<?php echo $row["id"]; ?>"><img title="Eliminar" src="./img/del.png"></a></td>
                     </tr>
                 <?php } ?>
             </tbody>
