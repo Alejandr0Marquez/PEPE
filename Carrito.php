@@ -54,7 +54,7 @@ $sql = mysqli_query($con, "SELECT * FROM carrito");
                                 <input type="hidden" name="Precio_C" value="<?php echo $row['Precio_C']; ?>">
                             </td>
                             <td><a href="eliminarCarrito.php?id=<?php echo $row["id_C"]; ?>"><img title="Eliminar"
-                                        src="http://localhost/PEPE/img/del.png"></a></td>
+                                        src="./img/del.png"></a></td>
                         </tr>
                     <?php } ?>
                 </tbody>
