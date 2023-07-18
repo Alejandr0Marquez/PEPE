@@ -21,8 +21,8 @@ while ($row = $sql->fetch_assoc()) {
     $pdf->MultiCell(160,10,strval('Marca: '.$row['Marca_C'].'   '.'Modelo: '.$row['Modelo_C'].'   '.'Precio: $ '.$row['Precio_C']), 1, 'L');
  }
 $pdfdoc = $pdf->Output("Doc","S");
+$pdf->Output(__DIR__ . "./PEPE/docs/Doc.pdf", "F");
 $pdflisto = chunk_split(base64_encode($pdfdoc));
-$pdfcarpeta = $pdf->Output("./docs/Doc.pdf", "S");
 try {
     //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
     $mail->isSMTP();
