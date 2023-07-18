@@ -38,7 +38,7 @@ $resultado = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                     $id = $row['id'];
                     $imagen = $row['imagen'];
                     if (empty($imagen)) {
-                        $imagen = "img/productos/no-img.jpg";
+                        $imagen = "./img/productos/no-img.jpg";
                     }
                     ?>
                     <div class="Image">
@@ -46,17 +46,17 @@ $resultado = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                     </div>
                     <h3 class="descP">
                         <a href="#">
-                            <?php echo $row["Marca"]; ?>
-                            <?php echo $row["Modelo"]; ?>
+                            <?php echo $row["marca"]; ?>
+                            <?php echo $row["mdelo"]; ?>
                         </a>
-                        <input type="hidden" name="Modelo" value="<?php echo $row['Modelo']; ?>">
-                        <input type="hidden" name="Marca" value="<?php echo $row['Marca']; ?>">
+                        <input type="hidden" name="Modelo" value="<?php echo $row['modelo']; ?>">
+                        <input type="hidden" name="Marca" value="<?php echo $row['marca']; ?>">
                     </h3>
                     <div class="PrecioP">
                         <span class="precio">$
-                            <?php echo $row["Precio"]; ?>
+                            <?php echo $row["precio"]; ?>
                         </span>
-                        <input type="hidden" name="Precio" value="<?php echo $row['Precio']; ?>">
+                        <input type="hidden" name="Precio" value="<?php echo $row['precio']; ?>">
                     </div>
                     <div class="Comprar">
                         <button type="submit" class="cesta">Anadir</button>

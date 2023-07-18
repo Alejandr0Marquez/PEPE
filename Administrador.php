@@ -80,7 +80,14 @@ $sql = mysqli_query($con, "SELECT * FROM productos");
                 <?php while ($row = $sql->fetch_assoc()) { ?>
                     <tr>
                         <td>
-                           <img title="producto" src="<?php echo $row['imagen'];?>" style="height: 200px;"> 
+                        <?php
+                    $id = $row['id'];
+                    $imagen = $row['imagen'];
+                    if (empty($imagen)) {
+                        $imagen = "./img/productos/no-img.jpg";
+                    }
+                    ?>
+                        <img src="<?php echo $imagen; ?>" alt="Modelo" style="height: 200px;">
                         </td>
                         <td>
                             <?php echo $row['marca']; ?>
