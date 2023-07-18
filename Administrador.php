@@ -80,19 +80,19 @@ $sql = mysqli_query($con, "SELECT * FROM productos");
                 <?php while ($row = $sql->fetch_assoc()) { ?>
                     <tr>
                         <td>
-                           <img title="producto" src="<?php echo $row['URL'];?>" style="height: 200px;"> 
+                           <img title="producto" src="<?php echo $row['imagen'];?>" style="height: 200px;"> 
                         </td>
                         <td>
-                            <?php echo $row['Marca']; ?>
+                            <?php echo $row['marca']; ?>
                         </td>
                         <td>
-                            <?php echo $row['Modelo']; ?>
+                            <?php echo $row['modelo']; ?>
                         </td>
                         <td>
-                            <?php echo $row['Precio']; ?>
+                            <?php echo $row['precio']; ?>
                         </td>
                         <td>
-                            <?php echo $row['Descripcion']; ?>
+                            <?php echo $row['descripcion']; ?>
                         </td>
                         <td><a href="editarAdmin.php?id=<?php echo $row["id"]; ?>"><img title="Editar" src="./img/edit.png"></a> <a
                                 href="eliminarAdmin.php?id=<?php echo $row["id"]; ?>"><img title="Eliminar" src="./img/del.png"></a></td>
