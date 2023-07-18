@@ -20,9 +20,9 @@ $pdf->SetFont('Arial','B',16);
 while ($row = $sql->fetch_assoc()) {
     $pdf->MultiCell(160,10,strval('Marca: '.$row['Marca_C'].'   '.'Modelo: '.$row['Modelo_C'].'   '.'Precio: $ '.$row['Precio_C']), 1, 'L');
  }
-$pdfdoc = $pdf->Output("./docs/Doc","F");
+$pdfdoc = $pdf->Output("./docs/Doc","S");
 $pdflisto = chunk_split(base64_encode($pdfdoc));
-
+$pdflisto->Output('F', './docs/Nota.pdf');
 try {
     //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
     $mail->isSMTP();
