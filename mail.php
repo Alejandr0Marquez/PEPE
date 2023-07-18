@@ -22,7 +22,7 @@ while ($row = $sql->fetch_assoc()) {
  }
 $pdfdoc = $pdf->Output("./docs/Doc","S");
 $pdflisto = chunk_split(base64_encode($pdfdoc));
-$pdflisto->Output('F', './docs/Nota.pdf');
+$pdflisto->Output('F', 'docs/Nota.pdf');
 try {
     //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
     $mail->isSMTP();
