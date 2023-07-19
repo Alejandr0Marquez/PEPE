@@ -41,7 +41,7 @@ while ($row = $sql->fetch_assoc()) {
 }
 
 // Agregar la fecha y el total al contenido del carrito
-$carritoContent .= "\nFecha de envío: " . $fechaEnvio . "\n";
+$carritoContent .= "\nFecha de envio: " . $fechaEnvio . "\n";
 $carritoContent .= "Total de la compra: $ " . number_format($totalCompra, 2);
 
 // Obtener la dirección de correo electrónico de la tabla usuarios con id=2
@@ -78,8 +78,8 @@ try {
     $mail->addStringAttachment($pdfdoc, 'Doc.pdf');
 
     $mail->isHTML(true);
-    $mail->Subject = 'Prueba desde GMAIL - Fecha de envío: ' . $fechaEnvio;
-    $mail->Body = 'Hola, <br/>Esta es una prueba desde <b>Gmail</b>. Fecha de envío: ' . $fechaEnvio;
+    $mail->Subject = 'Nota de compra - Fecha de envio: ' . $fechaEnvio;
+    $mail->Body = 'Hola, adjunto nota con Fecha de envio: ' . $fechaEnvio;
     $mail->send();
 
     echo 'Correo enviado';
@@ -91,4 +91,3 @@ $sql = mysqli_query($con, "INSERT INTO detalles SELECT 0, Marca_C, Modelo_C, CUR
 $vaciar = mysqli_query($con, "TRUNCATE TABLE carrito");
 header("Location: ./Productos.php");
 ?>
-
