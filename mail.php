@@ -50,7 +50,6 @@ if ($row_usuario = mysqli_fetch_assoc($sql_usuario)) {
     $recipientEmail = $row_usuario['correo'];
 }
 
-// Agregar la imagen al PDF
 $imagePath = './img/Tenki.png';
 $pdf->Image($imagePath, 80, 20, 50, 50); // Ajustar los valores de X, Y, ancho y alto según tu preferencia
 
@@ -59,8 +58,18 @@ $pdf->SetFont('Arial', 'B', 12);
 $pdf->SetXY(15, 90); // Posicionamiento para el contenido del carrito
 $pdf->MultiCell(180, 10, $carritoContent, 0, 'C'); // Ajustar el ancho de la celda para dar más espacio al texto
 
-$pdfdoc = $pdf->Output("Doc", "S");
+// Guardar el PDF en la carpeta ./docs
+$pdf->Output("./docs/Doc.pdf", "F"); // El segundo parámetro "F" indica que se guardará el PDF en un archivo
+
 $pdflisto = chunk_split(base64_encode($pdfdoc));
+try {
+    // ...
+
+    // Adjuntar el PDF guardado en el correo
+    $mail->addAttachment('./docs/Doc.pdf', 'Doc.pdf');
+} catch (Exception $e) {
+    echo 'Mensaje ' . $mail->ErrorInfo;
+}
 try {
     //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
     $mail->isSMTP();
