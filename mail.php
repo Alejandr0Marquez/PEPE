@@ -31,6 +31,9 @@ $fechaEnvio = date('Y-m-d');
 // Variable para almacenar el contenido del carrito
 $carritoContent = '';
 
+// Variable para almacenar la dirección de correo electrónico
+$recipientEmail = '';
+
 // Agregar los datos del carrito al contenido
 while ($row = $sql->fetch_assoc()) {
     $totalCompra += $row['Precio_C']; // Sumar el precio de cada elemento al total
@@ -38,8 +41,14 @@ while ($row = $sql->fetch_assoc()) {
 }
 
 // Agregar la fecha y el total al contenido del carrito
-$carritoContent .= "\nFecha de envio: " . $fechaEnvio . "\n";
+$carritoContent .= "\nFecha de envío: " . $fechaEnvio . "\n";
 $carritoContent .= "Total de la compra: $ " . number_format($totalCompra, 2);
+
+// Obtener la dirección de correo electrónico de la tabla usuarios con id=2
+$sql_usuario = mysqli_query($con, "SELECT correo FROM usuarios WHERE id = 2");
+if ($row_usuario = mysqli_fetch_assoc($sql_usuario)) {
+    $recipientEmail = $row_usuario['correo'];
+}
 
 // Agregar la imagen al PDF
 $imagePath = './img/Tenki.png';
@@ -63,14 +72,14 @@ try {
     $mail->Port = 587;
 
     $mail->setFrom('a21310355@ceti.mx', 'Alejandro Marquez');
-    $mail->addAddress('marquez1alejandro@gmail.com', 'Receptor');
+    $mail->addAddress($recipientEmail); // Usar la dirección de correo electrónico obtenida de la tabla usuarios
     $mail->addCC('a21310355@ceti.mx');
 
     $mail->addStringAttachment($pdfdoc, 'Doc.pdf');
 
     $mail->isHTML(true);
-    $mail->Subject = 'Prueba desde GMAIL - Fecha de envio: ' . $fechaEnvio;
-    $mail->Body = 'Hola, <br/>Esta es una prueba desde <b>Gmail</b>. Fecha de envio: ' . $fechaEnvio;
+    $mail->Subject = 'Prueba desde GMAIL - Fecha de envío: ' . $fechaEnvio;
+    $mail->Body = 'Hola, <br/>Esta es una prueba desde <b>Gmail</b>. Fecha de envío: ' . $fechaEnvio;
     $mail->send();
 
     echo 'Correo enviado';
@@ -82,3 +91,4 @@ $sql = mysqli_query($con, "INSERT INTO detalles SELECT 0, Marca_C, Modelo_C, CUR
 $vaciar = mysqli_query($con, "TRUNCATE TABLE carrito");
 header("Location: ./Productos.php");
 ?>
+
