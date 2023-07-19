@@ -28,6 +28,13 @@ $totalCompra = 0; // Variable para almacenar el total de la compra
 while ($row = $sql->fetch_assoc()) {
     $totalCompra += $row['Precio_C']; // Sumar el precio de cada elemento al total
     $pdf->Cell(160, 10, strval('Marca: ' . $row['Marca_C'] . '   ' . 'Modelo: ' . $row['Modelo_C'] . '   ' . 'Precio: $ ' . $row['Precio_C']), 1, 1, 'L');
+
+    // Verificar si el contenido excede la página actual y agregar una nueva página si es necesario
+    if ($pdf->GetY() > 250) {
+        $pdf->AddPage();
+        // Volver a agregar la imagen en cada nueva página, si es necesario
+        $pdf->Image($imagePath, 10, 10, 50, 50);
+    }
 }
 
 // Obtener la fecha actual
@@ -37,6 +44,9 @@ $fechaEnvio = date('Y-m-d');
 $pdf->SetY(-20);
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(0, 10, 'Fecha de envío: ' . $fechaEnvio, 0, 1, 'R');
+
+// Mover el puntero al final del contenido para evitar la superposición con el total
+$pdf->SetY($pdf->GetY() + 10);
 $pdf->Cell(0, 10, 'Total de la compra: $ ' . number_format($totalCompra, 2), 0, 1, 'R');
 
 $pdfdoc = $pdf->Output("Doc", "S");
@@ -71,3 +81,4 @@ $sql = mysqli_query($con, "INSERT INTO detalles SELECT 0, Marca_C, Modelo_C, CUR
 $vaciar = mysqli_query($con, "TRUNCATE TABLE carrito");
 header("Location: ./Productos.php");
 ?>
+
