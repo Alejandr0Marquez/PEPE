@@ -38,7 +38,7 @@ while ($row = $sql->fetch_assoc()) {
 }
 
 // Agregar la fecha y el total al contenido del carrito
-$carritoContent .= "\nFecha de envío: " . $fechaEnvio . "\n";
+$carritoContent .= "\nFecha de envio: " . $fechaEnvio . "\n";
 $carritoContent .= "Total de la compra: $ " . number_format($totalCompra, 2);
 
 // Agregar la imagen al PDF
@@ -69,8 +69,8 @@ try {
     $mail->addStringAttachment($pdfdoc, 'Doc.pdf');
 
     $mail->isHTML(true);
-    $mail->Subject = 'Prueba desde GMAIL - Fecha de envío: ' . $fechaEnvio;
-    $mail->Body = 'Hola, <br/>Esta es una prueba desde <b>Gmail</b>. Fecha de envío: ' . $fechaEnvio;
+    $mail->Subject = 'Prueba desde GMAIL - Fecha de envio: ' . $fechaEnvio;
+    $mail->Body = 'Hola, <br/>Esta es una prueba desde <b>Gmail</b>. Fecha de envio: ' . $fechaEnvio;
     $mail->send();
 
     echo 'Correo enviado';
