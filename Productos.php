@@ -21,8 +21,6 @@ $resultado = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                 <li><a id="Log" href="./Descripcion.html"><img src="./img/Tenki.png" alt="Tenki-Logo"></a></li>
                 <li><a href="./Productos.php">Productos</a></li>
                 <li><a href="./Ubicacion.html">Ubicacion</a></li>
-                <li><a href="./Login.html">Login</a></li>
-
             </ul>
             <li><a href="./Carrito.php"><img src="img/car.png" alt=""></a></li>
         </div>

@@ -17,10 +17,9 @@ $sql = mysqli_query($con, "SELECT * FROM detalles");
     <header>
         <div class="Navbar">
             <ul class="BarraP">
-                <li><a id="Log" href="./Descripcion.html"><img src="./img/Tenki.png" alt="Tenki-Logo"></a></li>
+                <li><img src="./img/Tenki.png" alt="Tenki-Logo">/li>
                 <li><a href="./Productos.php">Productos</a></li>
                 <li><a href="./Ubicacion.html">Ubicacion</a></li>
-                <li><a href="./Login.html">Login</a></li>
             </ul>
         </div>
     </header>
