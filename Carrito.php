@@ -17,7 +17,7 @@ $sql = mysqli_query($con, "SELECT * FROM carrito");
     <header>
         <div class="Navbar">
             <ul class="BarraP">
-                <li class="center"><img src="./img/Tenki.png" alt="Tenki-Logo">/li>
+                <li class="center"><img src="./img/Tenki.png" alt="Tenki-Logo"></li>
                 <li class="center"><a href="./Productos.php">Productos</a></li>
                 <li class="center"><a href="./Ubicacion.html">Ubicacion</a></li>
             </ul>
