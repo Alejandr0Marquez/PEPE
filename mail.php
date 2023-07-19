@@ -24,9 +24,10 @@ $pdf->Image($imagePath, 10, 10, 50, 50); // Ajusta los valores de X, Y, ancho y 
 
 $totalCompra = 0; // Variable para almacenar el total de la compra
 
+// Ajustar el ancho de la celda para dar más espacio al texto y evitar superposición
 while ($row = $sql->fetch_assoc()) {
     $totalCompra += $row['Precio_C']; // Sumar el precio de cada elemento al total
-    $pdf->MultiCell(160, 10, strval('Marca: ' . $row['Marca_C'] . '   ' . 'Modelo: ' . $row['Modelo_C'] . '   ' . 'Precio: $ ' . $row['Precio_C']), 1, 'L');
+    $pdf->Cell(160, 10, strval('Marca: ' . $row['Marca_C'] . '   ' . 'Modelo: ' . $row['Modelo_C'] . '   ' . 'Precio: $ ' . $row['Precio_C']), 1, 1, 'L');
 }
 
 // Obtener la fecha actual
@@ -70,4 +71,3 @@ $sql = mysqli_query($con, "INSERT INTO detalles SELECT 0, Marca_C, Modelo_C, CUR
 $vaciar = mysqli_query($con, "TRUNCATE TABLE carrito");
 header("Location: ./Productos.php");
 ?>
-
