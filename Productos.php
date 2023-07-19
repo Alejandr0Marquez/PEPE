@@ -1,6 +1,6 @@
 <?php
 include("conexion.php");
-$sql = mysqli_query($con, "SELECT id, Marca, Modelo, Precio, Descripcion, imagen FROM productos WHERE 1");
+$sql = mysqli_query($con, "SELECT id, marca, modelo, precio, descripcion, imagen FROM productos WHERE 1");
 $resultado = mysqli_fetch_all($sql, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
