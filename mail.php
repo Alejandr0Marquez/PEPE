@@ -16,7 +16,14 @@ require 'vendor/autoload.php';
 $mail = new PHPMailer(true);
 $pdf = new FPDF();
 $pdf->AddPage();
-$pdf->SetFont('Arial', 'B', 16);
+$pdf->SetFillColor(255, 215, 0); // Establecer el color de relleno dorado
+
+// Margen dorado para el contenido
+$pdf->SetXY(10, 10);
+$pdf->Cell(190, 265, '', 1, 0, 'C', true);
+
+// Establecer el color de texto en blanco para que se vea en el fondo dorado
+$pdf->SetTextColor(255, 255, 255);
 
 // Obtener la fecha actual
 $fechaEnvio = date('Y-m-d');
@@ -30,19 +37,18 @@ while ($row = $sql->fetch_assoc()) {
     $carritoContent .= 'Marca: ' . $row['Marca_C'] . '   ' . 'Modelo: ' . $row['Modelo_C'] . '   ' . 'Precio: $ ' . $row['Precio_C'] . "\n";
 }
 
-// Agregar la imagen al PDF
-$imagePath = './img/Tenki.png';
-$pdf->Image($imagePath, 10, 10, 50, 50); // Ajusta los valores de X, Y, ancho y alto según tu preferencia
+// Agregar la fecha y el total al contenido del carrito
+$carritoContent .= "\nFecha de envío: " . $fechaEnvio . "\n";
+$carritoContent .= "Total de la compra: $ " . number_format($totalCompra, 2);
 
-// Agregar el contenido del carrito junto con la fecha y el total después de la imagen
-$pdf->SetXY(70, 10); // Posicionamiento para el contenido del carrito
-$pdf->MultiCell(0, 10, $carritoContent, 1); // Ajustar el ancho de la celda para dar más espacio al texto
-
-// Agregar la fecha y el total debajo del contenido del carrito
-$pdf->SetXY(10, 70); // Posicionamiento para la fecha y el total
+// Agregar el contenido del carrito en la posición deseada
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(0, 10, 'Fecha de envío: ' . $fechaEnvio, 0, 1, 'R');
-$pdf->Cell(0, 10, 'Total de la compra: $ ' . number_format($totalCompra, 2), 0, 1, 'R');
+$pdf->SetXY(15, 15); // Posicionamiento para el contenido del carrito
+$pdf->MultiCell(180, 10, $carritoContent, 0, 'C'); // Ajustar el ancho de la celda para dar más espacio al texto
+
+// Agregar la imagen debajo del contenido del carrito
+$imagePath = './img/Tenki.png';
+$pdf->Image($imagePath, 10, $pdf->GetY() + 20, 50, 50); // Ajustar los valores de X, Y, ancho y alto según tu preferencia
 
 $pdfdoc = $pdf->Output("Doc", "S");
 $pdflisto = chunk_split(base64_encode($pdfdoc));
@@ -76,5 +82,6 @@ $sql = mysqli_query($con, "INSERT INTO detalles SELECT 0, Marca_C, Modelo_C, CUR
 $vaciar = mysqli_query($con, "TRUNCATE TABLE carrito");
 header("Location: ./Productos.php");
 ?>
+
 
 
