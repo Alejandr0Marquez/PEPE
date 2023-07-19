@@ -27,7 +27,7 @@ $resultado = mysqli_fetch_all($sql, MYSQLI_ASSOC);
     </header>
     <div class="Columnas-prod" style="text-align: center;">
         <?php
-        foreach ($sql as $row) {
+        foreach ($resultado as $row) {
             ?>
             <form method="post" action="aCarrito.php" class="prod"
                 style="width: 90%; height: 30%; border: 0; float: left; background-color: rgb(255, 255, 255);">
