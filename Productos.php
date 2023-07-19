@@ -45,7 +45,7 @@ $resultado = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                     <h3 class="descP">
                         <a href="#">
                             <?php echo $row["marca"]; ?>
-                            <?php echo $row["mdelo"]; ?>
+                            <?php echo $row["modelo"]; ?>
                         </a>
                         <input type="hidden" name="Modelo" value="<?php echo $row['modelo']; ?>">
                         <input type="hidden" name="Marca" value="<?php echo $row['marca']; ?>">
