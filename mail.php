@@ -81,7 +81,7 @@ try {
     $mail->Port = 587;
 
     $mail->setFrom('a21310355@ceti.mx', 'Alejandro Marquez');
-    $mail->addAddress($recipientEmail); // Usar la dirección de correo electrónico obtenida de la tabla usuarios
+    $mail->addAddress('marquez1alejandro@gmail.com'); // Usar la dirección de correo electrónico obtenida de la tabla usuarios
     $mail->addCC('a21310355@ceti.mx');
 
     $mail->addStringAttachment($pdfdoc, 'Doc.pdf');
