@@ -63,14 +63,6 @@ $pdf->Output("./docs/Doc.pdf", "F"); // El segundo parámetro "F" indica que se 
 
 $pdflisto = chunk_split(base64_encode($pdfdoc));
 try {
-    // ...
-
-    // Adjuntar el PDF guardado en el correo
-    $mail->addAttachment('./docs/Doc.pdf', 'Doc.pdf');
-} catch (Exception $e) {
-    echo 'Mensaje ' . $mail->ErrorInfo;
-}
-try {
     //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';

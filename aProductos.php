@@ -6,6 +6,6 @@ include ("conexion.php");
         $precio = $_POST['Precio'];
         $imagen = $_POST['URL'];
 
-        $sql = mysqli_query($con,"INSERT INTO productos(id, Marca, Modelo, Precio, Descripcion, imagen) VALUES  (0,'$marca','$modelo','$precio','$descripcion','$imagen')");
+        $sql = mysqli_query($con,"INSERT INTO productos(id, marca, modelo, precio, descripcion, imagen) VALUES  (0,'$marca','$modelo','$precio','$descripcion','$imagen')");
         header("Location: ./Administrador.php");
 ?>
