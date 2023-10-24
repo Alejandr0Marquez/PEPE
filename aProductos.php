@@ -7,5 +7,5 @@ include ("conexion.php");
         $imagen = $_POST['URL'];
 
         $sql = mysqli_query($con,"INSERT INTO productos(id, Marca, Modelo, Precio, Descripcion, imagen) VALUES  (0,'$marca','$modelo','$precio','$descripcion','$imagen')");
-        header("Location: ./Administrador.html");
+        header("Location: ./Administrador.php");
 ?>
