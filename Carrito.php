@@ -35,7 +35,8 @@ $sql = mysqli_query($con, "SELECT * FROM carrito");
                 <th>Precio</th>
                 <th>Opciones</th>
             </thead>
-            <a href="Detalles.php">Historial</a>
+            //<a href="Detalles.php">Historial</a>
+            <a href="http://10.0.33.2/">Historial</a>
             <form action="mail.php" method="post">
                 <tbody style="font-size: x-large;">
                     <?php while ($row = $sql->fetch_assoc()) { ?>
