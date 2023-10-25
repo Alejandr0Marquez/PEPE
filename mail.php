@@ -59,7 +59,7 @@ $pdf->SetXY(15, 90); // Posicionamiento para el contenido del carrito
 $pdf->MultiCell(180, 10, $carritoContent, 0, 'C'); // Ajustar el ancho de la celda para dar más espacio al texto
 
 // Guardar el PDF en la carpeta ./docs
-$pdf->Output("./docs/Doc.pdf", "F"); // El segundo parámetro "F" indica que se guardará el PDF en un archivo
+$pdf->Output("/home/download/Doc.pdf", "F");
 
 $pdflisto = chunk_split(base64_encode($pdfdoc));
 try {
