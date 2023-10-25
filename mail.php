@@ -76,7 +76,7 @@ try {
     $mail->addAddress($recipientEmail); // Usar la dirección de correo electrónico obtenida de la tabla usuarios
     $mail->addCC('a21310355@ceti.mx');
 
-    $mail->addStringAttachment($pdfdoc, 'Doc.pdf');
+    $mail->addStringAttachment($pdf, 'Doc.pdf');
 
     $mail->isHTML(true);
     $mail->Subject = 'Nota de compra - Fecha de envio: ' . $fechaEnvio;
