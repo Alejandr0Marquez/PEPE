@@ -59,7 +59,7 @@ $pdf->SetXY(15, 90); // Posicionamiento para el contenido del carrito
 $pdf->MultiCell(180, 10, $carritoContent, 0, 'C'); // Ajustar el ancho de la celda para dar más espacio al texto
 
 // Guardar el PDF en la carpeta ./docs
-$pdfContent = $pdf->Output("/home/download/Doc.pdf", "F");
+$pdfContent = $pdf->Output("/home/download/Doc.pdf", "S");
 $pdflisto = chunk_split(base64_encode($pdfContent));
 try {
     //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
