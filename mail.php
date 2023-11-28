@@ -59,9 +59,8 @@ $pdf->SetXY(15, 90); // Posicionamiento para el contenido del carrito
 $pdf->MultiCell(180, 10, $carritoContent, 0, 'C'); // Ajustar el ancho de la celda para dar más espacio al texto
 
 // Guardar el PDF en la carpeta ./docs
-$pdf->Output("/home/download/Doc.pdf", "F");
-
-$pdflisto = chunk_split(base64_encode($pdfdoc));
+$pdfContent = $pdf->Output("/home/download/Doc.pdf", "F");
+$pdflisto = chunk_split(base64_encode($pdfContent));
 try {
     //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
     $mail->isSMTP();
@@ -75,9 +74,7 @@ try {
     $mail->setFrom('a21310355@ceti.mx', 'Alejandro Marquez');
     $mail->addAddress($recipientEmail); // Usar la dirección de correo electrónico obtenida de la tabla usuarios
     $mail->addCC('a21310355@ceti.mx');
-
     $mail->addStringAttachment($pdfContent, 'Doc.pdf', 'base64', 'application/pdf');
-
     $mail->isHTML(true);
     $mail->Subject = 'Nota de compra - Fecha de envio: ' . $fechaEnvio;
     $mail->Body = 'Hola, adjunto nota con Fecha de envio: ' . $fechaEnvio;
